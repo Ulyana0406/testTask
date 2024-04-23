@@ -51,6 +51,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   gap: 64px;
   background: var(--background-primary, #16181d);
 }
