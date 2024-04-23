@@ -93,7 +93,8 @@
   gap: 16px;
 }
 .try__free {
-  border-radius: var(--corner-radius-8-px, 8px);
+  border-radius: 8px;
+  border: none;
   background: var(--background-accent, #4452fe);
   display: flex;
   padding: 20px 40px;
@@ -107,6 +108,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 135%;
+  cursor: pointer;
 }
 
 .to__know__more {
@@ -127,8 +129,8 @@
   background: var(--background-primary, #16181d);
 }
 .topImg {
-  height: 100%;
   width: 100%;
+  height: 100%;
   margin-top: 50px;
 }
 
@@ -449,4 +451,141 @@
 }
 .brandPicture {
   height: 100%;
+}
+
+.application {
+  width: 1416px;
+  height: 844px;
+
+  gap: 0px;
+  border-radius: 16px;
+  opacity: 0px;
+
+  background: var(--background-secondary, rgba(34, 37, 43, 1));
+}
+.label {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  padding: 12px 16px 12px 16px;
+  background: var(--background-tertiary, rgba(45, 49, 57, 1));
+  border: none;
+  border-radius: 8px;
+}
+.application {
+  display: flex;
+}
+.applicationSection {
+  background: var(--background-primary, #16181d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 456px;
+  height: 604px;
+  gap: 24px;
+
+  margin-left: 120px;
+  margin-top: 88px;
+}
+.confidensial {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-tertiary, rgba(112, 122, 143, 1));
+}
+.confidensialP {
+  margin: 0;
+}
+.docs {
+  color: var(--text-tertiary, rgba(112, 122, 143, 1));
+}
+.inputComment {
+  padding: 12px 16px 12px 16px;
+  background: var(--background-tertiary, rgba(45, 49, 57, 1));
+  border: none;
+  border-radius: 8px;
+  height: 132px;
+}
+.slider {
+  background: var(--background-primary, #16181d);
+}
+.inputComment::placeholder {
+  transform: translateY(-40px);
+}
+
+.feedback {
+  background-color: transparent;
+  width: 456px;
+  height: 352px;
+  padding: 40px;
+  gap: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--stroke-secondary, rgba(67, 73, 86, 1));
+}
+.userInform {
+  display: flex;
+  gap: 20px;
+}
+.user {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+.userImg {
+  width: 65px;
+  height: 65px;
+}
+.userName {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+}
+.userProf {
+  color: rgba(112, 122, 143, 1);
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+.fbText {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+.fbButton {
+  margin-top: 20px;
+  padding: 0;
+  color: rgba(68, 82, 254, 1);
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  cursor: pointer;
+}
+.feedbacksection {
+  margin-left: 300px;
+  margin-right: 300px;
+}
+.slick-slide {
+  margin: 0 27px;
 }

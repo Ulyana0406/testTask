@@ -1,75 +1,47 @@
 import styles from "./Main.module.scss";
-// import React, { useState } from "react";
-// type Testimonial = {
-//   name: string;
-//   testimonial: string;
-//   avatar: string;
-//   profession: string;
-// };
-
-// const testimonials: Testimonial[] = [
-//   {
-//     name: "Alice Johnson",
-//     testimonial:
-//       "Link is incredibly intuitive and easy to use. It's streamlined my scheduling process like no other tool has.",
-//     avatar: "avatar1.png",
-//     profession: "Freelance Designer",
-//   },
-//   {
-//     name: "Bob Smith",
-//     testimonial:
-//       "As a freelancer, Link has helped me keep all my appointments in order, ensuring I never double-book or miss a meeting.",
-//     avatar: "avatar2.png",
-//     profession: "Software Developer",
-//   },
-//   {
-//     name: "Carolyn Bessette",
-//     testimonial:
-//       "I've tried many tools for my daily planning but Link is by far the most efficient and simple to use.",
-//     avatar: "avatar3.png",
-//     profession: "Content Writer",
-//   },
-//   {
-//     name: "Alice Johnson",
-//     testimonial:
-//       "Link is incredibly intuitive and easy to use. It's streamlined my scheduling process like no other tool has.",
-//     avatar: "avatar1.png",
-//     profession: "Freelance Designer",
-//   },
-//   {
-//     name: "Bob Smith",
-//     testimonial:
-//       "As a freelancer, Link has helped me keep all my appointments in order, ensuring I never double-book or miss a meeting.",
-//     avatar: "avatar2.png",
-//     profession: "Software Developer",
-//   },
-//   {
-//     name: "Carolyn Bessette",
-//     testimonial:
-//       "I've tried many tools for my daily planning but Link is by far the most efficient and simple to use.",
-//     avatar: "avatar3.png",
-//     profession: "Content Writer",
-//   },
-//   // Assume more testimonials are added here
-// ];
+import { useState } from "react";
+import "./index.css";
+import Modal from "../ModalAuth/ModalAuth";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+const data = [
+  {
+    img: "avatar1.png",
+    name: "Федот Сергеев",
+    prof: "Дизайнер",
+    feedback:
+      "Я использовал этот софт для фрилансера и был впечатлен его функциональностью и простотой использования. Программа помогла мне организовать свою работу и улучшить эффективность выполнения задач. Особенно мне нравится, что софт предоставляет возможно...",
+  },
+  {
+    img: "avatar2.png",
+    name: "Болексей Арисов",
+    prof: "Разработчик",
+    feedback:
+      "В целом, я считаю, что этот софт для фрилансера - это хороший выбор для тех, кто стремится улучшить свою рабочую эффективность и успешно координировать свои проекты. Он упрощает процессы и облегчает работу, что делает его очень полезным инстру...",
+  },
+  {
+    img: "avatar3.png",
+    name: "Маман Рамаев",
+    prof: "Техлид в РЖД",
+    feedback:
+      "Благодаря этому софту я смог значительно улучшить свою эффективность и организацию, что, в свою очередь, позволило мне зарабатывать больше денег и удовлетворять потребности моих клиентов. Хорошие функции, такие как автоматизация платежей и напомина...",
+  },
+];
 
 const Main = () => {
-  //   const [slideIndex, setSlideIndex] = useState(0);
-
-  //   const nextSlide = () => {
-  //     setSlideIndex((prevIndex) => (prevIndex + 1) % (testimonials.length / 3));
-  //   };
-
-  //   const prevSlide = () => {
-  //     setSlideIndex(
-  //       (prevIndex) =>
-  //         (prevIndex - 1 + testimonials.length / 3) % (testimonials.length / 3)
-  //     );
-  //   };
-
+  const [isActive, setActive] = useState(false);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+  };
   return (
     <main className={styles.main}>
       <header className={styles.header}>
+        <Modal isActive={isActive} setActive={setActive} />
         <div className={styles.navigate}>
           <a className={styles.logo}>
             <svg
@@ -140,7 +112,12 @@ const Main = () => {
             <a className={styles.navlink}>Партнеры</a>
             <a className={styles.navlink}>Отзывы</a>
           </nav>
-          <button className={styles.enter__button}>Войти</button>
+          <button
+            onClick={() => setActive(true)}
+            className={styles.enter__button}
+          >
+            Войти
+          </button>
         </div>
       </header>
       <section className={styles.top__content}>
@@ -352,23 +329,79 @@ const Main = () => {
           <img className={styles.brandPicture} src="ibm.png" alt="" />
         </div>
       </section>
-      {/* <section className={styles.slider}>
-        <button onClick={prevSlide}>Prev</button>
-        {testimonials
-          .slice(slideIndex * 3, (slideIndex + 1) * 3)
-          .map((testimonial, index) => (
-            <div key={index}>
-              <img src={testimonial.avatar} alt={testimonial.name} />
-              <h4>{testimonial.name}</h4>
-              <p>{testimonial.testimonial}</p>
-              <span>{testimonial.profession}</span>
-            </div>
-          ))}
-        <button onClick={nextSlide}>Next</button>
-        <div>
-          Page {slideIndex + 1} of {Math.ceil(testimonials.length / 3)}
+      <section className={styles.slider}>
+        <div className={styles.feedbackTop}>
+          <h1 className={styles.productH1}> Отзывы</h1>
         </div>
-      </section> */}
+        <div className={styles.feedbacksection}>
+          <Slider {...settings}>
+            {data.map((d) => (
+              <div className={styles.feedback}>
+                <div className={styles.userInform}>
+                  <img className={styles.userImg} src={d.img} alt="" />
+                  <div className={styles.user}>
+                    <h4 className={styles.userName}>{d.name}</h4>
+                    <p className={styles.userProf}>{d.prof}</p>
+                  </div>
+                </div>
+                <div className={styles.fbText}>{d.feedback}</div>
+                <button className={styles.fbButton}>Показать ещё</button>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </section>
+      <section className={styles.applicationSection}>
+        <div className={styles.application}>
+          <img src="applic.png" alt="" />
+
+          <div className={styles.form}>
+            <div className={styles.inputDiv}>
+              <label className={styles.label}>Ваше имя</label>
+              <input
+                className={styles.input}
+                type="text"
+                placeholder="Иван"
+              ></input>
+            </div>
+            <div className={styles.inputDiv}>
+              <label className={styles.label}>Номер телефона</label>
+              <input
+                className={styles.input}
+                type="tel"
+                placeholder="+7 000 000-00-00"
+              ></input>
+            </div>
+            <div className={styles.inputDiv}>
+              <label className={styles.label}>E-mail</label>
+              <input
+                className={styles.input}
+                type="email"
+                placeholder="example@email.com"
+              ></input>
+            </div>
+            <div className={styles.inputDiv}>
+              <label className={styles.label}>Комментарий к заявке</label>
+              <input
+                className={styles.inputComment}
+                type="text"
+                placeholder="Здравствуйте, хотелось бы..."
+              ></input>
+            </div>
+            <div className={styles.confidensial}>
+              <p className={styles.confidensialP}>
+                Нажимая «Отправить» вы соглашаетесь с{" "}
+              </p>
+
+              <a className={styles.docs} href="">
+                политикой конфиденциальности
+              </a>
+            </div>
+            <button className={styles.try__free}>Отправить</button>
+          </div>
+        </div>
+      </section>
+      <section className={styles.footer}></section>
     </main>
   );
 };
