@@ -1,4 +1,5 @@
 import styles from "./Main.module.scss";
+import { createRef } from "react";
 import { useState } from "react";
 import "./index.css";
 import Modal from "react-modal";
@@ -78,6 +79,12 @@ const Main = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
+  };
+  const application = createRef<HTMLDivElement>();
+  const scrollToRef = () => {
+    if (application.current) {
+      application.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
   return (
     <main className={styles.main}>
@@ -175,7 +182,9 @@ const Main = () => {
           </p>
         </div>
         <div className={styles.top__buttons}>
-          <button className={styles.try__free}>Попробовать бесплатно</button>
+          <button onClick={scrollToRef} className={styles.try__free}>
+            Попробовать бесплатно
+          </button>
           <button className={styles.to__know__more}>Узнать больше</button>
         </div>
         <div className={styles.dashboard}>
@@ -428,7 +437,7 @@ const Main = () => {
         )}
       </section>
       <section className={styles.applicationSection}>
-        <div className={styles.application}>
+        <div ref={application} className={styles.application}>
           <picture>
             <source srcSet="max375.png" media="(max-width: 375px)" />
             <img src="applic.png" alt="" />
