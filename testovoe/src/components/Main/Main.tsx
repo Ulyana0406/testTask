@@ -81,16 +81,28 @@ const Main = () => {
     slidesToScroll: 3,
   };
   const application = createRef<HTMLDivElement>();
+  const header = createRef<HTMLDivElement>();
+  const toNowMore = createRef<HTMLDivElement>();
   const scrollToRef = () => {
     if (application.current) {
       application.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const scrollToHeader = () => {
+    if (header.current) {
+      header.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const scrollToMore = () => {
+    if (toNowMore.current) {
+      toNowMore.current.scrollIntoView({ behavior: "smooth" });
     }
   };
   return (
     <main className={styles.main}>
       <header className={styles.header}>
         <Modaly isActive={isActive} setActive={setActive} />
-        <div className={styles.navigate}>
+        <div ref={header} className={styles.navigate}>
           <a className={styles.logo}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -185,7 +197,9 @@ const Main = () => {
           <button onClick={scrollToRef} className={styles.try__free}>
             Попробовать бесплатно
           </button>
-          <button className={styles.to__know__more}>Узнать больше</button>
+          <button onClick={scrollToMore} className={styles.to__know__more}>
+            Узнать больше
+          </button>
         </div>
         <div className={styles.dashboard}>
           <picture>
@@ -196,7 +210,7 @@ const Main = () => {
       </section>
       <section>
         <div className={styles.advantageSection}>
-          <div className={styles.advantageSectionTop}>
+          <div ref={toNowMore} className={styles.advantageSectionTop}>
             <h1 className={styles.adH1}> Преимущества</h1>
             <p className={styles.adtop}>
               Link предназначен для фрилансеров, которым нужен <br /> простой
@@ -338,7 +352,9 @@ const Main = () => {
               зависите от клиента в работе?<br></br> Link поможет вам
               определиться
             </p>
-            <button className={styles.itemButton}>Попробовать бесплатно</button>
+            <button onClick={scrollToRef} className={styles.itemButton}>
+              Попробовать бесплатно
+            </button>
             <img
               className={styles.itemImg}
               src="Boards Notifications.png"
@@ -677,7 +693,7 @@ const Main = () => {
             <a className={styles.footerDoc}>Политика конфиденциальности</a>
             <a className={styles.footerDoc}>Публичная оферта</a>
           </div>
-          <button className={styles.arrive}>
+          <button onClick={scrollToHeader} className={styles.arrive}>
             Вернуться наверх
             <svg
               width="24"
@@ -886,7 +902,7 @@ const Main = () => {
           <p className={styles.footerDoc}>Политика конфиденциальности</p>
           <p className={styles.footerDoc}>Публичная оферта</p>
 
-          <button className={styles.arrive}>
+          <button onClick={scrollToHeader} className={styles.arrive}>
             Вернуться наверх
             <svg
               width="24"
