@@ -4,3 +4,12 @@
 .slick-slide > div {
   width: 456px;
 }
+
+.modal {
+  width: 456px;
+  height: 624px;
+  padding: 40px 0px 0px 0px;
+  gap: 32px;
+  border-radius: var(--corner-radius8px);
+  opacity: 0px;
+}

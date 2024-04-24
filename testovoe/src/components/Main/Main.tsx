@@ -1,24 +1,55 @@
 import styles from "./Main.module.scss";
 import { useState } from "react";
 import "./index.css";
-import Modal from "../ModalAuth/ModalAuth";
+import Modal from "react-modal";
+
+Modal.setAppElement("#root");
+import Modaly from "../ModalAuth/ModalAuth";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const data = [
+
+const customStyles = {
+  content: {
+    top: "30%",
+    left: "45%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    width: "450px",
+    height: "624px",
+    scroll: "none",
+    transform: "translate(-40%, -10%)",
+    background: "rgba(34, 37, 43, 1)",
+    border: "17px",
+  },
+};
+interface dat {
+  name: string;
+  prof: string;
+  feedback: string;
+  img: string;
+  allFeed: string;
+}
+const data: dat[] = [
   {
     img: "avatar1.png",
     name: "Федот Сергеев",
     prof: "Дизайнер",
     feedback:
       "Я использовал этот софт для фрилансера и был впечатлен его функциональностью и простотой использования. Программа помогла мне организовать свою работу и улучшить эффективность выполнения задач. Особенно мне нравится, что софт предоставляет возможно...",
+    allFeed:
+      "Я использовал этот софт для фрилансера и был впечатлен его функциональностью и простотой использования. Программа помогла мне организовать свою работу и улучшить эффективность выполнения задач. Особенно мне нравится, что софт предоставляет возможность создавать и отправлять запросы на выполнение работ, а также следить за своим временем и расходованием ресурсов.",
   },
+
   {
     img: "avatar2.png",
     name: "Болексей Арисов",
     prof: "Разработчик",
     feedback:
       "В целом, я считаю, что этот софт для фрилансера - это хороший выбор для тех, кто стремится улучшить свою рабочую эффективность и успешно координировать свои проекты. Он упрощает процессы и облегчает работу, что делает его очень полезным инстру...",
+    allFeed:
+      "В целом, я считаю, что этот софт для фрилансера - это хороший выбор для тех, кто стремится улучшить свою рабочую эффективность и успешно координировать свои проекты. Он упрощает процессы и облегчает работу, что делает его очень полезным инструментом для фрилансеров.",
   },
   {
     img: "avatar3.png",
@@ -26,10 +57,20 @@ const data = [
     prof: "Техлид в РЖД",
     feedback:
       "Благодаря этому софту я смог значительно улучшить свою эффективность и организацию, что, в свою очередь, позволило мне зарабатывать больше денег и удовлетворять потребности моих клиентов. Хорошие функции, такие как автоматизация платежей и напомина...",
+    allFeed:
+      "Благодаря этому софту я смог значительно улучшить свою эффективность и организацию, что, в свою очередь, позволило мне зарабатывать больше денег и удовлетворять потребности моих клиентов. Хорошие функции, такие как автоматизация платежей и напоминания о задачах, делают его незаменимым инструментом для фрилансеров.",
   },
 ];
 
 const Main = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [currentReview, setCurrentReview] = useState<dat | null>(null);
+  const openModal = (d: dat) => {
+    setCurrentReview(d);
+    setModalIsOpen(true);
+  };
+  const closeModal = () => setModalIsOpen(false);
+
   const [isActive, setActive] = useState(false);
   const settings = {
     dots: true,
@@ -41,7 +82,7 @@ const Main = () => {
   return (
     <main className={styles.main}>
       <header className={styles.header}>
-        <Modal isActive={isActive} setActive={setActive} />
+        <Modaly isActive={isActive} setActive={setActive} />
         <div className={styles.navigate}>
           <a className={styles.logo}>
             <svg
@@ -340,7 +381,7 @@ const Main = () => {
         </div>
         <div className={styles.feedbacksection}>
           <Slider {...settings}>
-            {data.map((d) => (
+            {data.map((d: dat) => (
               <div className={styles.feedback}>
                 <div className={styles.userInform}>
                   <img className={styles.userImg} src={d.img} alt="" />
@@ -350,11 +391,41 @@ const Main = () => {
                   </div>
                 </div>
                 <div className={styles.fbText}>{d.feedback}</div>
-                <button className={styles.fbButton}>Показать ещё</button>
+                <button
+                  onClick={() => openModal(d)}
+                  className={styles.fbButton}
+                >
+                  Показать ещё
+                </button>
               </div>
             ))}
           </Slider>
         </div>
+        {currentReview && (
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            style={customStyles}
+          >
+            <div className={styles.modal}>
+              <button className={styles.exitModal} onClick={closeModal}>
+                <img className={styles.exitModalImg} src="exit.png"></img>
+              </button>
+              <div className={styles.userInform}>
+                <img
+                  className={styles.userImg}
+                  src={currentReview.img}
+                  alt=""
+                />
+                <div className={styles.user}>
+                  <h4 className={styles.userName}>{currentReview.name}</h4>
+                  <p className={styles.userProf}>{currentReview.prof}</p>
+                </div>
+              </div>
+              <div className={styles.fbText}>{currentReview.allFeed}</div>
+            </div>
+          </Modal>
+        )}
       </section>
       <section className={styles.applicationSection}>
         <div className={styles.application}>

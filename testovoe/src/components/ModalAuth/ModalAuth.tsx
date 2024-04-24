@@ -1,6 +1,6 @@
 import styles from "./ModuleAuth.module.scss";
 import { useEffect } from "react";
-const Modal = ({
+const Modaly = ({
   isActive,
   setActive,
 }: {
@@ -69,4 +69,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default Modaly;

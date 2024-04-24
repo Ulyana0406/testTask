@@ -36,6 +36,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
+  &:hover {
+    text-decoration: underline 5px;
+    text-decoration-color: #4452fe;
+    text-underline-offset: 20px;
+  }
 }
 .enter__button {
   border-radius: var(--corner-radius-8-px, 8px);
@@ -49,7 +54,14 @@
   color: var(--text-primary, #fff);
   font-family: Onest;
   font-weight: 400;
+  transition: all 0.3s;
+
+  cursor: pointer;
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
+
 .top__content {
   display: flex;
   padding: 128px 0px;
@@ -108,7 +120,12 @@
   font-style: normal;
   font-weight: 500;
   line-height: 135%;
+  transition: all 0.3s;
+
   cursor: pointer;
+  &:hover {
+    background: rgb(105, 117, 255);
+  }
 }
 
 .to__know__more {
@@ -127,6 +144,12 @@
   border-radius: var(--corner-radius-8-px, 8px);
   border: 1px solid var(--stroke-primary, #fff);
   background: var(--background-primary, #16181d);
+  transition: all 0.3s;
+
+  cursor: pointer;
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
 .topImg {
   width: 100%;
@@ -409,6 +432,12 @@
   opacity: 0px;
 
   background: var(--background-accent, rgba(68, 82, 254, 1));
+  transition: all 0.3s;
+
+  cursor: pointer;
+  &:hover {
+    background: rgb(105, 117, 255);
+  }
 }
 .galery {
   padding-top: 180px;
@@ -437,6 +466,11 @@
   border-color: white;
   border-style: solid;
   background: var(--background-primary, #16181d);
+  transition: all 0.3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
 .partners {
   padding-top: 180px;
@@ -529,7 +563,21 @@
 .inputComment::placeholder {
   transform: translateY(-40px);
 }
-
+.modal {
+  padding: 40px;
+  gap: 32px;
+  border-radius: 8px;
+  opacity: 0px;
+}
+.exitModal {
+  background-color: transparent;
+  border: none;
+  &Img {
+    width: 25px;
+    height: 25px;
+    margin-left: 300px;
+  }
+}
 .feedback {
   background-color: transparent;
   width: 456px;
@@ -694,6 +742,12 @@
   border-radius: var(--corner-radius-8-px, 8px);
   border: 1px solid var(--stroke-primary, #fff);
   background-color: transparent;
+  transition: all 0.3s;
+
+  cursor: pointer;
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
 @media (min-width: 376px) {
   .fotterMobile {
