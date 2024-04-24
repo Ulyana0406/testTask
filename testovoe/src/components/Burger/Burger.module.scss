@@ -1,0 +1,72 @@
+.burger {
+  padding: 20px;
+  z-index: 1000;
+  position: absolute;
+  background: var(--background-primary, rgba(22, 24, 29, 1));
+
+  width: 375px;
+  height: 812px;
+}
+.dialog {
+  margin-top: 786px;
+  background-color: none;
+
+  background: none;
+  border: none;
+  padding-left: 0px;
+  height: 100vh;
+  width: 100%;
+}
+.socialIcons {
+  margin-top: 10px;
+}
+.icon {
+  transition: all 0.3s;
+}
+.icon :hover {
+  fill: rgb(71, 83, 255);
+}
+.closeButton {
+  width: 56px;
+  height: 56px;
+  margin-left: 291px;
+  border: none;
+  background-color: rgba(22, 24, 29, 1);
+}
+.burgerUl {
+  margin-top: 217px;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.burgerLi {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+.try__free {
+  margin-top: 115px;
+  border-radius: 8px;
+  border: none;
+  background: var(--background-accent, #4452fe);
+  display: flex;
+  padding: 20px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary, #fff);
+  /* desktop/button/large/medium */
+  font-family: Onest;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 135%;
+  transition: all 0.3s;
+
+  cursor: pointer;
+  &:hover {
+    background: rgb(105, 117, 255);
+  }
+}

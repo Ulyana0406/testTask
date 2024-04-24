@@ -16,6 +16,11 @@
   justify-content: space-between;
   align-items: center;
 }
+.burgerMenu {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
 .nav__links {
   display: flex;
   padding: 28px 0px;
@@ -753,6 +758,9 @@
   .fotterMobile {
     display: none;
   }
+  .burgerMenu {
+    display: none;
+  }
 }
 @media (max-width: 375px) {
   .top__text {
@@ -766,6 +774,7 @@
   .nav__links {
     display: none;
   }
+
   .navigate {
     padding-left: 16px;
     padding-right: 16px;

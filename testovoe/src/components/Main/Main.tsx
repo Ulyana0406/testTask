@@ -9,6 +9,7 @@ import Modaly from "../ModalAuth/ModalAuth";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Burger from "../Burger/Burger";
 
 const customStyles = {
   content: {
@@ -73,6 +74,7 @@ const Main = () => {
   const closeModal = () => setModalIsOpen(false);
 
   const [isActive, setActive] = useState(false);
+  const [isBurger, setBurger] = useState(false);
   const settings = {
     dots: true,
     infinite: true,
@@ -178,6 +180,10 @@ const Main = () => {
           >
             Войти
           </button>
+          <button onClick={() => setBurger(true)} className={styles.burgerMenu}>
+            <img src="burger.png" alt="" />
+          </button>
+          <Burger isBurger={isBurger} setBurger={setBurger} />
         </div>
       </header>
       <section className={styles.top__content}>
