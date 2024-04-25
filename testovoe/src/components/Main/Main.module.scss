@@ -754,7 +754,7 @@
     background: rgba(255, 255, 255, 0.2);
   }
 }
-@media (min-width: 376px) {
+@media (min-width: 377px) {
   .fotterMobile {
     display: none;
   }
@@ -762,7 +762,9 @@
     display: none;
   }
 }
-@media (max-width: 375px) {
+@media (min-width: 1024px) and (max-width: 1366px) {
+}
+@media (max-width: 376px) {
   .top__text {
     padding-left: 16px;
     padding-right: 16px;
