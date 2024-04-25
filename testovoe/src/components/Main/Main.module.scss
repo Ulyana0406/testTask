@@ -762,7 +762,14 @@
     display: none;
   }
 }
-@media (min-width: 1024px) and (max-width: 1366px) {
+@media (min-width: 1200px) and (max-width: 1490px) {
+  .feedbacksection {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .feedback {
+    height: 380px;
+  }
 }
 @media (max-width: 376px) {
   .top__text {

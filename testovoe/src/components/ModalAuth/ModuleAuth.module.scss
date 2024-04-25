@@ -183,3 +183,8 @@
     border: none;
   }
 }
+@media (min-width: 1200px) and (max-width: 1490px) {
+  .dialog {
+    margin-left: 480px;
+  }
+}

@@ -13,3 +13,9 @@
   border-radius: var(--corner-radius8px);
   opacity: 0px;
 }
+@media (min-width: 1200px) and (max-width: 1490px) {
+  .slick-slide > div {
+    width: 400px;
+    height: 430px;
+  }
+}
